@@ -153,3 +153,10 @@ function modifBien($ObjConnexion, $ref, $descrip, $prix, $surface, $type, $ville
     $execution = $update->execute();
     return $execution;
 }
+function supBien($ObjConnexion,$ref){
+    $del=$ObjConnexion->prepare("DELETE FROM formu WHERE ref=:ref");
+$bvc1 = $del->bindValue(':ref', $ref, PDO::PARAM_INT);
+$executionOK = $del->execute();
+return $executionOK;
+  
+}
