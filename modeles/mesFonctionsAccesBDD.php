@@ -142,7 +142,6 @@ function ajoutBien($ObjConnexion, $descrip, $prix, $surface, $type, $ville, $pie
 
 function modifBien($ObjConnexion, $ref, $descrip, $prix, $surface, $type, $ville, $piece, $jardin) {
     $update = $ObjConnexion->prepare("UPDATE biens SET descrip= :descrip, prix= :prix, surface= :surface, type= :type, ville= :ville, nbPiece= :piece, jardin= :jardin WHERE ref= :ref");
-    $bvref = $update->bindValue(':ref', $ref);
     $bvdescrip = $update->bindValue(':descrip', $descrip);
     $bvprix = $update->bindValue(':prix', $prix);
     $bvsurface = $update->bindValue(':surface', $surface);
@@ -158,5 +157,12 @@ function supBien($ObjConnexion,$ref){
 $bvc1 = $del->bindValue(':ref', $ref, PDO::PARAM_INT);
 $executionOK = $del->execute();
 return $executionOK;
-  
+}
+
+function getUnBien ($ObjConnexion, $ref) {
+    $unBien = $ObjConnexion->prepare("SELECT * FROM biens JOIN type_biens ON type_biens.id = biens.type WHERE ref=:ref");
+    $bvref = $unBien->bindValue(':ref', $ref);
+    $execution = $unBien->execute();
+    $bien = $unBien->fetch();
+    return $bien;
 }

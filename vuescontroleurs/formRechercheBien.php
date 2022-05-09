@@ -24,7 +24,7 @@ and open the template in the editor.
             <div id="titreForm">Recherchez votre bien</div>
             <p>
                 <label for="ref" title="Veuillez saisir la ref de localisation"> Référence du bien :</label>
-                <input type="ref" name="ref">
+                <input type="number" name="ref" min="0">
             </p>
             
             <p>

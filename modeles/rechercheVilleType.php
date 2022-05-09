@@ -14,7 +14,6 @@
             include_once '../modeles/mesFonctionsAccesBDD.php';
 
             $lePDO = connexionBDD();
-
             $rechercheVille = $_POST['ville'];
             $rechercheType = $_POST['type'];
             $jardin = $_POST['jardin'];
