@@ -15,9 +15,8 @@ and open the template in the editor.
         <div class="nav">
                 <nav class="navLinks">
                     <a href="index.html" title="accueil">Accueil</a>
-                    <a href="vuescontroleurs/formRechercheBien.php" title="recherche">Rechercher</a>
-                    <a href="../vuescontroleurs/formConnexion.php" title="connexion">Connexion</a>
-                    <a href="../contact.html" title="contact">Contact</a>
+                    <a href="formRechercheBien.php" title="recherche">Rechercher</a>
+                    <a href="formConnexion.php" title="connexion">Connexion</a>
                 </nav>
             </div>
         </header>
