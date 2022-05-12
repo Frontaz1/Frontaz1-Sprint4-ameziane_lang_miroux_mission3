@@ -22,12 +22,7 @@ and open the template in the editor.
             <div class="menuFooter">
                 <h3>Parcourir</h3>
                 <a href="index.html" title="accueil">Accueil</a>
-                <a href="categorie/catmaison.html" title="maisons">Maisons</a>
-                <a href="categorie/catappart.html" title="appartements">Appartements</a>
-                <a href="categorie/catimmeuble.html" title="immeubles">Immeubles</a>
-                <a href="categorie/catlocal.html" title="locaux">Locaux</a>
-                <a href="categorie/catterrains.html" title="terrains">Terrains</a>
-                <a href="contact.html" title="maisons">Contact</a>
+               <a href="formRechercheBien.php" title="recherche">Rechercher</a>
             </div>
         </footer>
     </body>

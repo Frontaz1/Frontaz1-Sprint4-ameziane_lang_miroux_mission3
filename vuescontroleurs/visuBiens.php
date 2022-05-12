@@ -22,10 +22,10 @@
             foreach ($lesBiens as $unBien) {
                 echo '<tr><td>' . $unBien['ref'] . '</td><td>' . $unBien['prix'] . '</td><td>' . $unBien['surface'] . '</td><td>' .
                 $unBien['libelle'] . '</td><td>' . $unBien['ville'] . '</td><td>' . $unBien['nbPiece'] . '</td><td>' . $unBien['jardin'] . '</td><td>' . 
-                        '<a href = "../modeles/affichageUnBien.php?ref='. $unBien['ref'] .'" target="_blank">Afficher</a></td>'
-                        . '.<a href=  "../modeles/deleteBien.php">Supprimer</a></td></tr><br/>'
+                         '<a href = "affichageUnBien.php?ref='. $unBien['ref'] .'" target="_blank">Afficher</a></td>'
+                        . '<td><a href = "formAjouteBien.php?ref=' . $unBien['ref'] . '">Supprimer</a></td></tr><br/>';}
                        
-                        ;}
+                      
             ?>
         </table>
 
