@@ -71,7 +71,7 @@ if (isset($_SESSION['role'])) {
 </form>
 
 
-<form name="delete" id ="delete" method="post" action="">
+<form name="delete" id ="delete" method="post" action="../modeles/deleteBien.php">
     <div id="titreForm">Supprimer bien</div>
     <p>
         <label for="id" title="Veuillez saisir votre email " class="oblig">ID du bien :</label>
