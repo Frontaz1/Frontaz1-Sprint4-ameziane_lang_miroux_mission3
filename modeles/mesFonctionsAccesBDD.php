@@ -176,3 +176,30 @@ function rechercheRef($ObjConnexion, $ref) {
     $unBien = $recherche->fetch();
     return $unBien;
 }
+
+function triBiens($ObjConnexion, $sortVilleA, $sortVilleZ, $sortTypeA, $sortTypeD, $sortPrixA, $sortPrixD) {
+    $requete = "SELECT * from biens JOIN type_biens ON type_biens.id = biens.type ";
+    if ($sortVilleA != "") {
+        $requete .= " order by ville asc";
+    }
+    if ($sortVilleZ != "") {
+        $requete .= " order by ville desc";
+    }
+    if ($sortTypeA != "") {
+        $requete .= " order by type asc";
+    }
+    if ($sortTypeD != "") {
+        $requete .= " order by type desc";
+    }
+    if ($sortPrixA != "") {
+        $requete .= " order by prix asc";
+    }
+    if ($sortPrixD != "") {
+        $requete .= " order by prix desc";
+    }
+    
+    $tri = $ObjConnexion->prepare($requete);
+    $execution = $tri->execute();
+    $resultat = $tri->fetchAll();
+    return $resultat;
+}

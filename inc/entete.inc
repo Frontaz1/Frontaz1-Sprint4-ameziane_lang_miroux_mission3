@@ -16,7 +16,7 @@ and open the template in the editor.
     <body>
          <header>
             
-            <div class="logo"><img src="img/img/logo.png" alt="Agence OLJU"></div>
+            <div class="logo"><img src="../img/img/logo.png" alt="Agence OLJU"></div>
             <?php
             include_once 'menu.inc';
             ?>
