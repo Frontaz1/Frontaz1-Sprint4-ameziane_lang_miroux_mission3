@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : ven. 08 avr. 2022 à 13:21
+-- Généré le : ven. 13 mai 2022 à 09:56
 -- Version du serveur :  5.7.31
--- Version de PHP : 7.3.21
+-- Version de PHP : 7.4.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -41,14 +41,14 @@ CREATE TABLE IF NOT EXISTS `biens` (
   `jardin` int(11) NOT NULL,
   PRIMARY KEY (`ref`),
   KEY `fbien` (`type`)
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `biens`
 --
 
 INSERT INTO `biens` (`ref`, `descrip`, `prix`, `surface`, `type`, `ville`, `nbPiece`, `jardin`) VALUES
-(1, 'Vente Maison/villa 6 pièces. iad France - En exclusivité à moins de 10mn de Châlons, venez découvrir cette jolie maison, elle se compose d’une pièce de vie ouverte sur une cuisine équipée et ces 2 grandes vérandas, une salle de bain, 2 chambres et un Wc. A l’étage, un grand palier, une salle d\'eau et trois grandes chambres. Le tout accompagné d\'un sous-sol complet. Aucun vis-à-vis et beaucoup de lumière naturelle pour cette maison qui n\'attend plus que vous! Honoraires d’agence à la charge du vendeur.Information d\'affichage énergétique sur ce bien : DPE E indice 262 et GES A indice 5.', 259000, 50, 1, 'Paris', 6, 1),
+(1, 'Vente Maison/villa 6 pièces. iad France - En exclusivité à moins de 10mn de Châlons, venez découvrir cette jolie maison, elle se compose d’une pièce de vie ouverte sur une cuisine équipée et ces 2 grandes vérandas, une salle de bain, 2 chambres et un Wc. A l’étage, un grand palier, une salle d\'eau et trois grandes chambres. Le tout accompagné d\'un sous-sol complet. Aucun vis-à-vis et beaucoup de lumière naturelle pour cette maison qui n\'attend plus que vous!', 149000, 30, 1, 'Paris', 2, 1),
 (2, 'Maison 5 pièces 109 m² Idéal premier achat ou investissement locatif. Dans la commune d\'Évreux, proche des commodités. Maison 5 pièces au calme composée au rez-de-chaussée d\'une entrée, un W.C, une cuisine aménagée , un salon avec accès sur une véranda. A l\'étage : d\'une salle de bains, d\'un palier et 3 chambres. Le terrain nécessite peu d\'entretien. La maison donne accès à un garage privatif. Chauffage individuel. Disponible tout de suite.', 167840, 109, 1, 'Evreux', 5, 1),
 (3, 'Maison de 2 à 5 chambres, avec étage ou plain-pied évolutive. Comprenant cuisine ouverte sur grande et lumineuse pièce de vie, cellier, 3 chambres, grande salle de bain et WC séparé. Garage de 17 m², possibilité agrandissement, double-garage. Volets roulant Motorisés, Porte de garage sectionnelle motorisé, Fenêtre cuisine et SDB oscillo-battant. Prestations soignées. Plancher chauffant basse température. Chauffage et eau chaude produits par pompe à chaleur dernière génération (économie d\'énergie optimale et confort) Conformité aux normes thermiques RT2012 /RE2020 (classe A).', 171313, 90, 1, 'Le Mans', 6, 1),
 (4, 'A 15 min à pied de la gare de Combs la Ville - Quincy (RER D) et à 6 min des écoles, venez découvrir cette jolie maison entièrement rénovée avec des matériaux de qualité. Elle est édifiée sur une parcelle de 470m² environ. Au Rdc, l\'entrée vous mènera à un salon - séjour de près de 30 m² environ, une cuisine moderne aménagée et équipée, une salle de bain et un WC indépendant avec lave-main. Au 1er étage, vous découvrirez 2 belles chambres de plus de 11m² environ avec rangements. Vous trouverez également un double garage de près de 40m² environ et une piscine hors-sol en ossature bois.', 340000, 79, 1, 'Paris', 4, 1),
@@ -93,8 +93,9 @@ CREATE TABLE IF NOT EXISTS `image` (
   `nom` varchar(20) NOT NULL,
   `chemin` varchar(70) NOT NULL,
   `idbien` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=74 DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`id`),
+  KEY `ce_image_biens` (`idbien`)
+) ENGINE=InnoDB AUTO_INCREMENT=74 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `image`
@@ -105,14 +106,14 @@ INSERT INTO `image` (`id`, `nom`, `chemin`, `idbien`) VALUES
 (2, 'maison1', 'img/imgmaison/maison1-chambre.jpg', 1),
 (3, 'maison1', 'img/imgmaison/maison1-chambre2.jpg', 1),
 (4, 'maison1', 'img/imgmaison/maison1-sdb.jpg', 1),
-(5, 'maison2', 'img/imgmaison/maison2.jpg', 1),
-(6, 'maison2', 'img/imgmaison/maison2-photo1.jpg', 1),
-(7, 'maison2', 'img/imgmaison/maison2-photo2.jpg', 1),
-(8, 'maison2', 'img/imgmaison/maison2-photo3.jpg', 1),
-(9, 'maison3', 'img/imgmaison/maison3.jpg', 1),
-(10, 'maison3', 'img/imgmaison/maison3-photo1.jpg', 1),
-(11, 'maison3', 'img/imgmaison/maison3-photo2.jpg', 1),
-(12, 'maison3', 'img/imgmaison/maison3-photo3.jpg', 1),
+(5, 'maison2', 'img/imgmaison/maison2.jpg', 2),
+(6, 'maison2', 'img/imgmaison/maison2-photo1.jpg', 2),
+(7, 'maison2', 'img/imgmaison/maison2-photo2.jpg', 2),
+(8, 'maison2', 'img/imgmaison/maison2-photo3.jpg', 2),
+(9, 'maison3', 'img/imgmaison/maison3.jpg', 3),
+(10, 'maison3', 'img/imgmaison/maison3-photo1.jpg', 3),
+(11, 'maison3', 'img/imgmaison/maison3-photo2.jpg', 3),
+(12, 'maison3', 'img/imgmaison/maison3-photo3.jpg', 3),
 (13, 'terrain1', 'img/imgterrain/terrain1.jpg', 5),
 (14, 'terrain1', 'img/imgterrain/terrain1-photo1.jpg', 5),
 (15, 'terrain1', 'img/imgterrain/terrain1-photo2.jpg', 5),
@@ -129,51 +130,51 @@ INSERT INTO `image` (`id`, `nom`, `chemin`, `idbien`) VALUES
 (26, 'terrain4', 'img/imgterrain/terrain4-photo1.jpg', 5),
 (27, 'terrain4', 'img/imgterrain/terrain4-photo2.jpg', 5),
 (28, 'terrain4', 'img/imgterrain/terrain4-photo3.jpg', 5),
-(29, 'local1', 'img/imglocaux/local1.jpg', 4),
-(30, 'local1', 'img/imglocaux/local1-reserve.jpg', 4),
-(31, 'local1', 'img/imglocaux/local1-salle1.jpg', 4),
-(32, 'local1', 'img/imglocaux/local1-salle2.jpg', 4),
-(33, 'local2', 'img/imglocaux/local2.jpg', 4),
-(34, 'local3', 'img/imglocaux/local3.jpg', 4),
-(35, 'local4', 'img/imglocaux/local4.jpg', 4),
-(36, 'local5', 'img/imglocaux/local5.jpg', 4),
+(29, 'local1', 'img/imglocaux/local1.jpg', 28),
+(30, 'local1', 'img/imglocaux/local1-reserve.jpg', 28),
+(31, 'local1', 'img/imglocaux/local1-salle1.jpg', 28),
+(32, 'local1', 'img/imglocaux/local1-salle2.jpg', 28),
+(33, 'local2', 'img/imglocaux/local2.jpg', 29),
+(34, 'local3', 'img/imglocaux/local3.jpg', 30),
+(35, 'local4', 'img/imglocaux/local4.jpg', 31),
+(36, 'local5', 'img/imglocaux/local5.jpg', 32),
 (37, 'local6', 'img/imglocaux/local6.jpg', 4),
 (38, 'local7', 'img/imglocaux/local7.jpg', 4),
 (39, 'local8', 'img/imglocaux/local8.jpg', 4),
 (40, 'local9', 'img/imglocaux/local9.jpg', 4),
-(41, 'immeuble1', 'img/imgimmeuble/immeuble1.jpg', 3),
-(42, 'immeuble1', 'img/imgimmeuble/immeuble1-salle.jpg', 3),
-(43, 'immeuble1', 'img/imgimmeuble/immeuble1-salle2.jpg', 3),
-(44, 'immeuble1', 'img/imgimmeuble/immeuble1-salle3.jpg', 3),
-(45, 'immeuble2', 'img/imgimmeuble/immeuble2.jpg', 3),
-(46, 'immeuble3', 'img/imgimmeuble/immeuble3.jpg', 3),
-(47, 'immeuble4', 'img/imgimmeuble/immeuble4.jpg', 3),
-(48, 'immeuble5', 'img/imgimmeuble/immeuble5.jpg', 3),
-(49, 'immeuble6', 'img/imgimmeuble/immeuble6.jpg', 3),
-(50, 'immeuble7', 'img/imgimmeuble/immeuble7.jpg', 3),
-(51, 'immeuble8', 'img/imgimmeuble/immeuble8.jpg', 3),
+(41, 'immeuble1', 'img/imgimmeuble/immeuble1.jpg', 19),
+(42, 'immeuble1', 'img/imgimmeuble/immeuble1-salle.jpg', 19),
+(43, 'immeuble1', 'img/imgimmeuble/immeuble1-salle2.jpg', 19),
+(44, 'immeuble1', 'img/imgimmeuble/immeuble1-salle3.jpg', 19),
+(45, 'immeuble2', 'img/imgimmeuble/immeuble2.jpg', 20),
+(46, 'immeuble3', 'img/imgimmeuble/immeuble3.jpg', 21),
+(47, 'immeuble4', 'img/imgimmeuble/immeuble4.jpg', 22),
+(48, 'immeuble5', 'img/imgimmeuble/immeuble5.jpg', 23),
+(49, 'immeuble6', 'img/imgimmeuble/immeuble6.jpg', 24),
+(50, 'immeuble7', 'img/imgimmeuble/immeuble7.jpg', 25),
+(51, 'immeuble8', 'img/imgimmeuble/immeuble8.jpg', 32),
 (52, 'immeuble9', 'img/imgimmeuble/immeuble9.jpg', 3),
-(53, 'appart1', 'img/imgappartement/appart1.jpg', 2),
-(54, 'appart1', 'img/imgappartement/appart1-chambre.jpg', 2),
-(55, 'appart1', 'img/imgappartement/appart1-cuisine.jpg', 2),
-(56, 'appart1', 'img/imgappartement/appart1-sdb.jpg', 2),
-(57, 'appart2', 'img/imgappartement/appart2.jpg', 2),
-(58, 'appart2', 'img/imgappartement/appart2-photo1.jpg', 2),
-(59, 'appart2', 'img/imgappartement/appart2-photo2.jpg', 2),
-(60, 'appart2', 'img/imgappartement/appart2-photo3.jpg', 2),
-(61, 'appart3', 'img/imgappartement/appart3.jpg', 2),
-(62, 'appart3', 'img/imgappartement/appart3-photo1.jpg', 2),
-(63, 'appart3', 'img/imgappartement/appart2-photo3-photo2.jpg', 2),
-(64, 'appart3', 'img/imgappartement/appart3-photo3.jpg', 2),
-(65, 'appart3', 'img/imgappartement/appart3-photo4.jpg', 2),
-(66, 'appart4', 'img/imgappartement/appart4.jpg', 2),
-(67, 'appart4', 'img/imgappartement/appart4-photo1.jpg', 2),
-(68, 'appart4', 'img/imgappartement/appart4-photo2.jpg', 2),
-(69, 'appart4', 'img/imgappartement/appart4-photo3.jpg', 2),
-(70, 'appart5', 'img/imgappartement/appart5.jpg', 2),
-(71, 'appart5', 'img/imgappartement/appart5-photo1.jpg', 2),
-(72, 'appart5', 'img/imgappartement/appart5-photo2.jpg', 2),
-(73, 'appart5', 'img/imgappartement/appart5-photo3.jpg', 2);
+(53, 'appart1', 'img/imgappartement/appart1.jpg', 10),
+(54, 'appart1', 'img/imgappartement/appart1-chambre.jpg', 10),
+(55, 'appart1', 'img/imgappartement/appart1-cuisine.jpg', 10),
+(56, 'appart1', 'img/imgappartement/appart1-sdb.jpg', 10),
+(57, 'appart2', 'img/imgappartement/appart2.jpg', 11),
+(58, 'appart2', 'img/imgappartement/appart2-photo1.jpg', 11),
+(59, 'appart2', 'img/imgappartement/appart2-photo2.jpg', 11),
+(60, 'appart2', 'img/imgappartement/appart2-photo3.jpg', 11),
+(61, 'appart3', 'img/imgappartement/appart3.jpg', 12),
+(62, 'appart3', 'img/imgappartement/appart3-photo1.jpg', 12),
+(63, 'appart3', 'img/imgappartement/appart2-photo3-photo2.jpg', 12),
+(64, 'appart3', 'img/imgappartement/appart3-photo3.jpg', 13),
+(65, 'appart3', 'img/imgappartement/appart3-photo4.jpg', 14),
+(66, 'appart4', 'img/imgappartement/appart4.jpg', 14),
+(67, 'appart4', 'img/imgappartement/appart4-photo1.jpg', 15),
+(68, 'appart4', 'img/imgappartement/appart4-photo2.jpg', 15),
+(69, 'appart4', 'img/imgappartement/appart4-photo3.jpg', 15),
+(70, 'appart5', 'img/imgappartement/appart5.jpg', 16),
+(71, 'appart5', 'img/imgappartement/appart5-photo1.jpg', 16),
+(72, 'appart5', 'img/imgappartement/appart5-photo2.jpg', 16),
+(73, 'appart5', 'img/imgappartement/appart5-photo3.jpg', 16);
 
 -- --------------------------------------------------------
 
@@ -230,6 +231,12 @@ INSERT INTO `utilisateur` (`id`, `nom`, `email`, `mdp`) VALUES
 --
 ALTER TABLE `biens`
   ADD CONSTRAINT `fbien` FOREIGN KEY (`type`) REFERENCES `type_biens` (`id`);
+
+--
+-- Contraintes pour la table `image`
+--
+ALTER TABLE `image`
+  ADD CONSTRAINT `ce_image_biens` FOREIGN KEY (`idbien`) REFERENCES `biens` (`ref`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
