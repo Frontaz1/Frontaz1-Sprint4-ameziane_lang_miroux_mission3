@@ -14,7 +14,7 @@ and open the template in the editor.
         <header>
         <div class="nav">
                 <nav class="navLinks">
-                    <a href="index.html" title="accueil">Accueil</a>
+                    <a href="index.php" title="accueil">Accueil</a>
                      <a href="formRechercheBien.php" title="recherche">Rechercher</a>
                     <a href="formConnexion.php" title="connexion">Connexion</a>
                 </nav>
