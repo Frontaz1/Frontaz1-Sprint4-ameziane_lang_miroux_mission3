@@ -152,17 +152,27 @@ function modifBien($ObjConnexion, $ref, $descrip, $prix, $surface, $type, $ville
     $execution = $update->execute();
     return $execution;
 }
-function supBien($ObjConnexion,$ref){
-    $del=$ObjConnexion->prepare("DELETE FROM biens WHERE ref=:ref");
-$bvc1 = $del->bindValue(':ref', $ref, PDO::PARAM_INT);
-$executionOK = $del->execute();
-return $executionOK;
+
+function supBien($ObjConnexion, $ref) {
+    $del = $ObjConnexion->prepare("DELETE FROM biens WHERE ref=:ref");
+    $bvc1 = $del->bindValue(':ref', $ref, PDO::PARAM_INT);
+    $executionOK = $del->execute();
+    return $executionOK;
 }
 
-function getUnBien ($ObjConnexion, $ref) {
+function getUnBien($ObjConnexion, $ref) {
     $unBien = $ObjConnexion->prepare("SELECT * FROM biens JOIN type_biens ON type_biens.id = biens.type WHERE ref=:ref");
     $bvref = $unBien->bindValue(':ref', $ref);
     $execution = $unBien->execute();
     $bien = $unBien->fetch();
     return $bien;
+}
+
+function rechercheRef($ObjConnexion, $ref) {
+    $requete = "SELECT * FROM biens WHERE ref=:laref";
+    $recherche = $ObjConnexion->prepare($requete);
+    $bv = $recherche->bindValue(':ref', $ref);
+    $execution = $recherche->execute();
+    $unBien = $recherche->fetch();
+    return $unBien;
 }

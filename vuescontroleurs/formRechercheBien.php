@@ -21,12 +21,7 @@ and open the template in the editor.
         <!-- Recherche par ville et type -->
 
         <form name="rechercheVilleType" id ="rechercheVilleType" method="post" action="../modeles/rechercheVilleType.php">
-            <div id="titreForm">Recherchez votre bien</div>
-            <p>
-                <label for="ref" title="Veuillez saisir la ref de localisation"> Référence du bien :</label>
-                <input type="number" name="ref" min="0">
-            </p>
-            
+            <div id="titreForm">Recherchez votre bien</div>            
             <p>
                 <label for="ville" title="Veuillez saisir la ville de localisation"> ville :</label>
                 <select id="ville" name ="ville" title="Veuillez saisir la ville de localisation ">
@@ -63,23 +58,32 @@ and open the template in the editor.
                 <input type="hidden" name="jardin" value="0" />
 
                 <input type="checkbox" id="jardin" name="jardin" value=1>
-                
+
                 <label for="jardin">Oui</label>
             </div>
             <!-- peut etre mettre 1 à id en haut -->
-<label for="prix-select">Choisir une tranche de prix:</label>
-<div>
-        <input type="number" name="nb1"  min="0" max="1000000" step="1" >
-        <input type="number" name="nb2" min="0" max="1000000" step="1" >
-    
-</div>
+            <label for="prix-select">Choisir une tranche de prix:</label>
+            <div>
+                <input type="number" name="nb1"  min="0" max="1000000" step="1" >
+                <input type="number" name="nb2" min="0" max="1000000" step="1" >
+
+            </div>
 
             <div id="piedForm">
                 <input type="submit" name="valid" id="valid" value="Rechercher" />
             </div>
         </form>
-
-
+        
+        <form name="rechercheReference" id ="rechercheReference" method="post" action="../modeles/rechercheRef.php">
+            <div id="titreForm">Recherchez votre bien par la référence</div>  
+            <p>
+                <label for="ref" title="Veuillez saisir la ref de localisation"> Référence du bien :</label>
+                <input type="number" name="ref" min="0">
+            </p>
+            <div id="piedForm">
+                <input type="submit" name="valid" id="valid" value="Rechercher" />
+            </div>
+        </form>
         <?php
         include_once'../inc/piedDePage.inc';
         ?>

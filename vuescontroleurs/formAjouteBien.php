@@ -80,8 +80,11 @@ if (isset($_SESSION['role'])) {
 
     <div id="piedForm">
         
-        <button onclick="myFunction()" type="submit" name="valid" id="valid" value="Supprimer">Supprimer</button>
+        <button type="submit" name="valid" id="valid" value="Supprimer">Supprimer</button>
         <p id="demo"></p>
+ 
+    </div>
+</form>
         <script>
 function myFunction() {
   let text;
@@ -98,9 +101,6 @@ function myFunction() {
 }
    
 </script>
-    </div>
-</form>
-
 
 <form name="modif" id ="modif" method="post" action="../modeles/modificationBien.php">
     <div id="titreForm">Modifier bien :</div>
