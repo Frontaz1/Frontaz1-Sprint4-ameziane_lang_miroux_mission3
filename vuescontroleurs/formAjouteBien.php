@@ -71,7 +71,7 @@ if (isset($_SESSION['role'])) {
 </form>
 
 
-<form name="delete" id ="delete" method="post" action="../modeles/deleteBien.php" >
+<form name="delete" id ="delete" method="post" action="../modeles/deleteBien.php" onsubmit="return myFunction(this)" >
     <div id="titreForm">Supprimer bien</div>
     <p>
         <label for="ref" title="Veuillez saisir votre email " class="oblig">ID du bien :</label>
@@ -87,22 +87,16 @@ function myFunction() {
   let text;
   if (confirm("Voulez vous supprimer ce bien?") == true) {
     text = "You pressed OK!";
+    return true;
     
   } else {
     text = "You canceled!";
+    return false;
     
   }
   document.getElementById("demo").innerHTML = text;
 }
-    function test(){
-    ok=myFunction();
-    if(ok=="You pressed OK!"){
-        return true;
-    }
-    else{
-        alert("erreur");
-        return false;
-    }}
+   
 </script>
     </div>
 </form>
